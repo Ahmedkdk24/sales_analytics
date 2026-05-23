@@ -1,0 +1,7 @@
+pandas
+openpyxl
+xlrd
+matplotlib 
+seaborn
+arabic_reshaper
+python-bidi
