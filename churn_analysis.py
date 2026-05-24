@@ -47,10 +47,12 @@ EXCEL_OUT = "churned_customers.xlsx"
 TOP15_EXCEL_OUT = "top15_churned_customers.xlsx"
 
 # Customers to exclude from all analysis
-# Add customer names exactly as they appear in the data
-EXCLUDED_CUSTOMERS = [
-    "شركة مستقبل الابداع المحدودة", "شركة فريسينة السعودية العربية" , "مؤسسة سماء الاسطح التجارية - قديم", "مؤسسة حنان الشمال للمعدات قديم"  # reason: one-off outlier transaction
-]
+# Add customer names exactly as they appear in the data.
+# Use excluded_customers.py for private customer exclusion lists.
+try:
+    from excluded_customers import EXCLUDED_CUSTOMERS
+except (ImportError, ModuleNotFoundError):
+    EXCLUDED_CUSTOMERS = []
 
 
 # --------------------
