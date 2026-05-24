@@ -425,15 +425,18 @@ def main():
 
 if __name__ == "__main__":
     # Test Arabic text fixing
-    test_strings = [
-        "شركة ابان الصناعية",
-        "احمد غنام",
-        "شركة مستقبل الابداع المحدودة"
-    ]
+    # Load test strings from the private `excluded_customers.py` when available
+    # so sensitive names are not stored in this public file.
+    if EXCLUDED_CUSTOMERS:
+        test_strings = EXCLUDED_CUSTOMERS[:3]
+    else:
+        # Safe, non-sensitive placeholders for public repo
+        test_strings = ["مثال عميل", "مثال مندوب", "اسم تجريبي"]
+
     print("Arabic fix test:")
     for s in test_strings:
         print(f"  Original : {s}")
         print(f"  Fixed    : {fix_arabic(s)}")
         print()
-    
+
     main()
